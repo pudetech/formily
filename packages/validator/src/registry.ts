@@ -44,7 +44,7 @@ const registry = {
 
 const getISOCode = (language: string) => {
   let isoCode = registry.locales.language
-  const lang = lowerCase(language)
+  const lang = language.toLowerCase()
   if (registry.locales.messages[language]) {
     return language
   }
