@@ -1,7 +1,6 @@
 import {
   FormPath,
   each,
-  lowerCase,
   globalThisPolyfill,
   merge as deepmerge,
   isFn,
@@ -44,14 +43,14 @@ const registry = {
 
 const getISOCode = (language: string) => {
   let isoCode = registry.locales.language
-  const lang = language.toLowerCase()
+  const lang = language?.toLowerCase()
   if (registry.locales.messages[language]) {
     return language
   }
   each(
     registry.locales.messages,
     (messages: IRegistryLocaleMessages, key: string) => {
-      const target = lowerCase(key)
+      const target = key?.toLowerCase()
       if (target.indexOf(lang) > -1 || lang.indexOf(target) > -1) {
         isoCode = key
         return false
